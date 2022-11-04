@@ -3,18 +3,10 @@ from astar_node import AstarNode
 
 
 class AstarSolver:
-    """
-    An '8-puzzle' solver
-    - 'init_board' is a Puzzle board
-    """
     def __init__(self, init_board):
         self.init_board = init_board
 
     def solve(self):
-        """
-        Perform breadth first search and return a path
-        to the solution, if it exists
-        """
         queue = collections.deque([AstarNode(self.init_board)])
         seen = set()
         seen.add(queue[0].state)

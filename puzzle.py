@@ -41,6 +41,7 @@ class Puzzle:
                     moves.append(move)
         return moves
 
+    """
     @property
     def manhattan(self):
         distance = 0
@@ -50,16 +51,7 @@ class Puzzle:
                     x, y = divmod(self.board[i][j]-1, 3)
                     distance += abs(x - i) + abs(y - j)
         return distance
-
-    @property
-    def euclid(self):
-        distance = 0
-        for i in range(3):
-            for j in range(3):
-                if self.board[i][j] != 0:
-                    x, y = divmod(self.board[i][j]-1, 3)
-                    distance += math.sqrt((x - i)**2 + (y - j)**2)
-        return distance
+    """
 
     @property
     def false_amount(self):
@@ -72,9 +64,6 @@ class Puzzle:
         return amount
 
     def shuffle(self):
-        """
-        Return a new puzzle that has been shuffled with 1000 random moves
-        """
         puzzle = self
         for _ in range(1000):
             puzzle = random.choice(self.actions)[0]()
@@ -82,8 +71,7 @@ class Puzzle:
 
     def _move(self, at, to):
         """
-        Return a new puzzle where 'at' and 'to' tiles have been swapped.
-        NOTE: all moves should be 'actions' that have been executed
+        Makes move
         """
         new_board = []
         for row in self.board:
